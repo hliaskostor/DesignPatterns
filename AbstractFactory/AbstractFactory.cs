@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Abstract Products
+
 public abstract class Engine
 {
     public abstract void Start();
@@ -11,7 +11,7 @@ public abstract class Tires
     public abstract void Rotate();
 }
 
-// Concrete Products
+
 public class V6Engine : Engine
 {
     public override void Start()
@@ -44,14 +44,13 @@ public class WinterTires : Tires
     }
 }
 
-// Abstract Factory
+
 public abstract class CarFactory
 {
     public abstract Engine CreateEngine();
     public abstract Tires CreateTires();
 }
 
-// Concrete Factories
 public class SedanFactory : CarFactory
 {
     public override Engine CreateEngine()
@@ -78,7 +77,6 @@ public class SUVFactory : CarFactory
     }
 }
 
-// Usage
 class AbstractFactory
 {
     static void Main(string[] args)
@@ -87,14 +85,14 @@ class AbstractFactory
         Engine sedanEngine = sedanFactory.CreateEngine();
         Tires sedanTires = sedanFactory.CreateTires();
 
-        sedanEngine.Start();  // Output: Starting V6 Engine
-        sedanTires.Rotate();  // Output: Rotating Summer Tires
+        sedanEngine.Start();  
+        sedanTires.Rotate();  
 
         CarFactory suvFactory = new SUVFactory();
         Engine suvEngine = suvFactory.CreateEngine();
         Tires suvTires = suvFactory.CreateTires();
 
-        suvEngine.Start();  // Output: Starting V8 Engine
-        suvTires.Rotate();  // Output: Rotating Winter Tires
+        suvEngine.Start(); 
+        suvTires.Rotate();  
     }
 }

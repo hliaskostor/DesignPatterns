@@ -1,21 +1,20 @@
 ﻿using System;
 
-// Abstraction
+
 public abstract class DatabaseConnector
 {
     public abstract void Connect();
 }
 
-// Concrete Implementation
-public class MySQLConnector : DatabaseConnector
+
+public class Database : DatabaseConnector
 {
     public override void Connect()
     {
-        Console.WriteLine("Connecting to MySQL database...");
+        Console.WriteLine("Connecting to MySQL database");
     }
 }
 
-// High-level module depending on abstraction
 public class DataManager
 {
     private DatabaseConnector connector;
@@ -25,21 +24,21 @@ public class DataManager
         this.connector = connector;
     }
 
-    public void FetchData()
+    public void LoadData()
     {
         connector.Connect();
-        Console.WriteLine("Fetching data from the database...");
-        // Additional data processing logic
+        Console.WriteLine("Loading data from the database");
+      
     }
 }
 
-// Usage
+
 class DIP
 {
     static void Main(string[] args)
     {
-        MySQLConnector mysqlConnector = new MySQLConnector();
-        DataManager dataManager = new DataManager(mysqlConnector);
-        dataManager.FetchData();
+       Database Connector = new Database();
+        DataManager dataManager = new DataManager(Connector);
+        dataManager.LoadData();
     }
 }

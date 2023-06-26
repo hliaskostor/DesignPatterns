@@ -4,17 +4,17 @@ public class MediaPlayer
 {
     public virtual void Play(string audioType, string filename)
     {
-        // Default implementation
+       
     }
 }
 
-public interface IAdvancedMediaPlayer
+public interface AdvancedMediaPlayer
 {
     void PlayVlc(string filename);
     void PlayMp4(string filename);
 }
 
-public class VLCPlayer : IAdvancedMediaPlayer
+public class VLCPlayer : AdvancedMediaPlayer
 {
     public void PlayVlc(string filename)
     {
@@ -23,15 +23,15 @@ public class VLCPlayer : IAdvancedMediaPlayer
 
     public void PlayMp4(string filename)
     {
-        // VLCPlayer does not support playing MP4 files
+    
     }
 }
 
-public class MP4Player : IAdvancedMediaPlayer
+public class MP4Player : AdvancedMediaPlayer
 {
     public void PlayVlc(string filename)
     {
-        // MP4Player does not support playing VLC files
+    
     }
 
     public void PlayMp4(string filename)
@@ -42,7 +42,8 @@ public class MP4Player : IAdvancedMediaPlayer
 
 public class MediaAdapter : MediaPlayer
 {
-    private IAdvancedMediaPlayer advancedPlayer;
+    private AdvancedMediaPlayer advancedPlayer;
+  
     private string filename;
 
     public MediaAdapter(string audioType, string filename)
@@ -91,7 +92,7 @@ public class AudioPlayer : MediaPlayer
     }
 }
 
-// Usage
+
 class Adapter
 {
     static void Main(string[] args)

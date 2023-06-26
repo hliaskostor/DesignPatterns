@@ -1,12 +1,12 @@
 ﻿using System;
 
-// Product
+
 public abstract class Car
 {
     public abstract void Drive();
 }
 
-// Concrete Products
+
 public class Sedan : Car
 {
     public override void Drive()
@@ -23,7 +23,7 @@ public class SUV : Car
     }
 }
 
-// Factory
+
 public class CarFactory
 {
     public Car CreateCar(string carType)
@@ -43,7 +43,6 @@ public class CarFactory
     }
 }
 
-// Usage
 class Factory
 {
     static void Main(string[] args)
@@ -51,9 +50,9 @@ class Factory
         CarFactory carFactory = new CarFactory();
 
         Car sedan = carFactory.CreateCar("sedan");
-        sedan.Drive();  // Output: Driving a Sedan
+        sedan.Drive();  
 
         Car suv = carFactory.CreateCar("suv");
-        suv.Drive();  // Output: Driving an SUV
+        suv.Drive(); 
     }
 }

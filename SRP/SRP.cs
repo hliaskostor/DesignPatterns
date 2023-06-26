@@ -29,14 +29,18 @@ public class Book
     }
 }
 
-public class BookPrinter
+public class BookPrinter : Book
 {
-    public void PrintBook(Book book)
+    public BookPrinter(string title, string author, string content) : base(title, author, content)
     {
-        Console.WriteLine($"Title: {book.GetTitle()}");
-        Console.WriteLine($"Author: {book.GetAuthor()}");
-        Console.WriteLine("Content:");
-        Console.WriteLine(book.GetContent());
+    }
+
+    public void PrintBook()
+    {
+        Console.WriteLine($"Title: {GetTitle()}");
+        Console.WriteLine($"Author: {GetAuthor()}");
+        Console.WriteLine($"Content:{GetContent()}");
+      
     }
 }
 
@@ -44,8 +48,7 @@ class SRP
 {
     static void Main(string[] args)
     {
-        Book book = new Book("Python Programming", "John Smith", "Learn Python programming...");
-        BookPrinter printer = new BookPrinter();
-        printer.PrintBook(book);
+        BookPrinter printer = new BookPrinter("C# Programming", "Stan Smith", "Learn C# Design Patterns");
+        printer.PrintBook();
     }
 }
